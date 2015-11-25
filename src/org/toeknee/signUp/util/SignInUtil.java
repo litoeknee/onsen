@@ -10,7 +10,11 @@ import java.util.Arrays;
 
 public class SignInUtil {
     // same as the token in weChat server
-    private static String token = "onsen";
+    private static String token;
+
+    static {
+        token = "onsen";
+    }
 
     /**
      * check the signature
@@ -22,13 +26,16 @@ public class SignInUtil {
      */
     public static boolean checkSignature(String signature, String timestamp, String nonce) {
         // sort the token, timestamp and nonce
-        String[] paramArr = new String[] { token, timestamp, nonce };
+        String[] paramArr;
+        paramArr = new String[] { token, timestamp, nonce };
         Arrays.sort(paramArr);
 
         // combine the answer as a string
-        String content = paramArr[0].concat(paramArr[1]).concat(paramArr[2]);
+        String content;
+        content = paramArr[0].concat(paramArr[1]).concat(paramArr[2]);
 
-        String ciphertext = null;
+        String ciphertext;
+        ciphertext = null;
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             // encode the string using SHA1
@@ -39,7 +46,11 @@ public class SignInUtil {
         }
 
         // compare the SHA-1 encoding string with the signature from weChat
-        return ciphertext != null ? ciphertext.equals(signature.toUpperCase()) : false;
+        if (ciphertext == null) {
+            return false;
+        } else {
+            return ciphertext.equals(signature.toUpperCase());
+        }
     }
 
     /**
@@ -63,12 +74,15 @@ public class SignInUtil {
      * @return
      */
     private static String byteToHexStr(byte mByte) {
-        char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-        char[] tempArr = new char[2];
+        char[] Digit;
+        Digit = new char[]{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+        char[] tempArr;
+        tempArr = new char[2];
         tempArr[0] = Digit[(mByte >>> 4) & 0X0F];
         tempArr[1] = Digit[mByte & 0X0F];
 
-        String s = new String(tempArr);
+        String s;
+        s = new String(tempArr);
         return s;
     }
 }
