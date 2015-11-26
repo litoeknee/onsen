@@ -4,13 +4,15 @@ package org.toeknee.signUp.message.resp;
  * Created by toeknee on 11/25/15.
  */
 public class Article {
-	// ͼ����Ϣ����
+	// Title of the rich media message
 	private String Title;
-	// ͼ����Ϣ����
+	// Description of the rich media message
 	private String Description;
-	// ͼƬ���ӣ�֧��JPG��PNG��ʽ���Ϻõ�Ч��Ϊ��ͼ640*320��Сͼ80*80
+	// URL of images in rich media messages.
+	// Recommended image size: 360*200 (large image); 200*200 (small image)
+    // Image format supported: JPG and PNG
 	private String PicUrl;
-	// ���ͼ����Ϣ��ת����
+	// Redirection link of the rich media message
 	private String Url;
 
 	public String getTitle() {
@@ -22,24 +24,36 @@ public class Article {
 	}
 
 	public String getDescription() {
-		return null == Description ? "" : Description;
-	}
+        if (null != Description) {
+            return Description;
+        } else {
+            return "";
+        }
+    }
 
 	public void setDescription(String description) {
 		Description = description;
 	}
 
 	public String getPicUrl() {
-		return null == PicUrl ? "" : PicUrl;
-	}
+        if (null != PicUrl) {
+            return PicUrl;
+        } else {
+            return "";
+        }
+    }
 
 	public void setPicUrl(String picUrl) {
 		PicUrl = picUrl;
 	}
 
 	public String getUrl() {
-		return null == Url ? "" : Url;
-	}
+        if (null != Url) {
+            return Url;
+        } else {
+            return "";
+        }
+    }
 
 	public void setUrl(String url) {
 		Url = url;

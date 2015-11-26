@@ -6,9 +6,11 @@ import java.util.List;
  * Created by toeknee on 11/25/15.
  */
 public class NewsMessage extends BaseMessage {
-	// ͼ����Ϣ����������Ϊ10������
+	// Quantity of rich media messages (up to 10)
 	private int ArticleCount;
-	// ����ͼ����Ϣ��Ϣ��Ĭ�ϵ�һ��itemΪ��ͼ
+	// The content of rich media messages.
+    // The first item is displayed as a large image by default.
+    // No response is given if more than 10 messages exist.
 	private List<Article> Articles;
 
 	public int getArticleCount() {

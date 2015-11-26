@@ -4,13 +4,13 @@ package org.toeknee.signUp.message.resp;
  * Created by toeknee on 11/25/15.
  */
 public class BaseMessage {
-	// ���շ��ʺţ��յ���OpenID��
+	// the weChat account of the user (openID)
 	private String ToUserName;
-	// ������΢�ź�
+	// the weChat account of the admin platform
 	private String FromUserName;
-	// ��Ϣ����ʱ�� �����ͣ�
+	// Message creation time (Integer)
 	private long CreateTime;
-	// ��Ϣ����
+	// Text
 	private String MsgType;
 
 	public String getToUserName() {

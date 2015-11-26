@@ -4,9 +4,9 @@ package org.toeknee.signUp.message.resp;
  * Created by toeknee on 11/25/15.
  */
 public class Video {
-	// ý���ļ�id
+	// Obtain this ID by uploading a multimedia file
 	private String MediaId;
-	// ����ͼ��ý��id
+	// The thumb multimedia ID that is obtained by uploading a multimedia file
 	private String ThumbMediaId;
 
 	public String getMediaId() {

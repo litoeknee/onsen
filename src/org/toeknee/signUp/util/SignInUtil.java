@@ -26,16 +26,13 @@ public class SignInUtil {
      */
     public static boolean checkSignature(String signature, String timestamp, String nonce) {
         // sort the token, timestamp and nonce
-        String[] paramArr;
-        paramArr = new String[] { token, timestamp, nonce };
+        String[] paramArr = new String[] { token, timestamp, nonce };
         Arrays.sort(paramArr);
 
         // combine the answer as a string
-        String content;
-        content = paramArr[0].concat(paramArr[1]).concat(paramArr[2]);
+        String content = paramArr[0].concat(paramArr[1]).concat(paramArr[2]);
 
-        String ciphertext;
-        ciphertext = null;
+        String ciphertext = null;
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             // encode the string using SHA1
@@ -57,7 +54,7 @@ public class SignInUtil {
      * convert a byteArray to a String
      *
      * @param byteArray
-     * @return
+     * @return s
      */
     private static String byteToStr(byte[] byteArray) {
         String strDigest = "";
@@ -71,18 +68,15 @@ public class SignInUtil {
      * convert a byte to a String in Hex
      *
      * @param mByte
-     * @return
+     * @return s
      */
     private static String byteToHexStr(byte mByte) {
-        char[] Digit;
-        Digit = new char[]{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-        char[] tempArr;
-        tempArr = new char[2];
+        char[] Digit = new char[]{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+        char[] tempArr = new char[2];
         tempArr[0] = Digit[(mByte >>> 4) & 0X0F];
         tempArr[1] = Digit[mByte & 0X0F];
 
-        String s;
-        s = new String(tempArr);
+        String s = new String(tempArr);
         return s;
     }
 }

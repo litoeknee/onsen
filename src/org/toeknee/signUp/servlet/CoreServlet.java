@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.toeknee.signUp.service.CoreService;
 import org.toeknee.signUp.util.SignInUtil;
 
 public class CoreServlet extends HttpServlet {
@@ -21,25 +22,24 @@ public class CoreServlet extends HttpServlet {
         serialVersionUID = 4440739483644821986L;
     }
 
+    @Override
     /**
      * request check: to check if the request is from weChat server
+     *
+     * @param request
+     * @param response
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // encoded signature from weChat
-        String signature;
-        signature = request.getParameter("signature");
+        String signature = request.getParameter("signature");
         // timestamp from weChat
-        String timestamp;
-        timestamp = request.getParameter("timestamp");
+        String timestamp = request.getParameter("timestamp");
         // a random number from weChat
-        String nonce;
-        nonce = request.getParameter("nonce");
+        String nonce = request.getParameter("nonce");
         // a random string from weChat
-        String echostr;
-        echostr = request.getParameter("echostr");
+        String echostr = request.getParameter("echostr");
 
-        PrintWriter out;
-        out = response.getWriter();
+        PrintWriter out = response.getWriter();
         // if ciphertext equals to signature then print and return the string
         if (SignInUtil.checkSignature(signature, timestamp, nonce)) {
             out.print(echostr);
@@ -48,10 +48,32 @@ public class CoreServlet extends HttpServlet {
         out = null;
     }
 
+    @Override
     /**
-     * ?????????????????????
+     * get the request from server and post a response
+     *
+     * @param request
+     * @param response
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO ????????????????
+        // set character encoding for Chinese
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        // encoded signature from weChat
+        String signature = request.getParameter("signature");
+        // timestamp from weChat
+        String timestamp = request.getParameter("timestamp");
+        // a random string from weChat
+        String nonce = request.getParameter("nonce");
+
+        PrintWriter out = response.getWriter();
+        if (SignInUtil.checkSignature(signature, timestamp, nonce)) {
+            // if ciphertext equals to signature then print and response
+            String respXml = CoreService.processRequest(request);
+            out.print(respXml);
+        }
+        out.close();
+        out = null;
     }
 }
