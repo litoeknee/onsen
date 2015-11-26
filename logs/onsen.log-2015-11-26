@@ -1,0 +1,8 @@
+[ERROR] 2015-11-26 23:51:16,728 org.toeknee.signUp.util.MenuUtil create menu error errcode:40027 errmsg:invalid sub button url size hint: [lC0LfA0073vr21]
+[INFO ] 2015-11-26 23:51:16,728 org.toeknee.weChat.main.MenuManager create menu fail!
+[ERROR] 2015-11-26 23:53:40,845 org.toeknee.signUp.util.MenuUtil create menu error errcode:40024 errmsg:invalid sub button type hint: [BGhLwA0217vr20]
+[INFO ] 2015-11-26 23:53:40,853 org.toeknee.weChat.main.MenuManager create menu fail!
+[ERROR] 2015-11-26 23:58:09,309 org.toeknee.signUp.util.MenuUtil create menu error errcode:40024 errmsg:invalid sub button type hint: [WlhV80485vr18]
+[INFO ] 2015-11-26 23:58:09,317 org.toeknee.weChat.main.MenuManager create menu fail!
+[INFO ] 2015-11-26 23:58:52,706 org.toeknee.weChat.main.MenuManager create menu success!
+[INFO ] 2015-11-26 23:59:54,048 org.toeknee.weChat.main.MenuManager create menu success!

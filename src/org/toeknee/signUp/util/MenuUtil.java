@@ -28,6 +28,7 @@ public class MenuUtil {
         String url = menu_create_url.replace("ACCESS_TOKEN", accessToken);
         // convert menu object to JSON string
         String jsonMenu = JSONObject.fromObject(menu).toString();
+        System.out.println(jsonMenu);
         // send post request to create menu
         JSONObject jsonObject = CommonUtil.httpsRequest(url, "POST", jsonMenu);
 

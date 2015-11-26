@@ -36,14 +36,14 @@ public class MenuManager {
         btn12.setKey("signIn");
 
         ClickButton btn21 = new ClickButton();
-        btn11.setName("课程创建");
-        btn11.setType("click");
-        btn11.setKey("registerClass");
+        btn21.setName("课程创建");
+        btn21.setType("click");
+        btn21.setKey("registerClass");
 
         ViewButton btn22 = new ViewButton();
-        btn12.setName("签到情况");
-        btn12.setType("view");
-        btn12.setKey("signStatus");
+        btn22.setName("签到情况");
+        btn22.setType("view");
+        btn22.setUrl("http://www.baidu.com");
 
         ComplexButton mainBtn1 = new ComplexButton();
         mainBtn1.setName("我是学生");

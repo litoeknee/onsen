@@ -68,7 +68,8 @@ public class CoreService {
             if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
                 String eventType = requestMap.get("Event");
                 if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-                    respContent = "Thank you for subscribe!";
+                    textMessage.setContent("Thank you for subscribe!");
+                    respXml = MessageUtil.messageToXml(textMessage);
                 }
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
                     // TODO no need to respond
